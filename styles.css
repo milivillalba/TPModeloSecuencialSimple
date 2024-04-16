@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+}
+
+#entrenamiento, #prediccion {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#valorX {
+    width: 100px;
+}
+
+#valorY {
+    font-weight: bold;
+}
