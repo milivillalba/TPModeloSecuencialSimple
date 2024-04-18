@@ -1,10 +1,10 @@
 async function entrenarModelo() {
-  const model = tf.sequential();
-  model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
+  const model = tf.sequential(); //para crear un modelo secuencial
+  model.add(tf.layers.dense({ units: 1, inputShape: [1] }));//se añade una capa densa al modelo
 
-  // Compilación del modelo
-  model.compile({
-    loss: "meanSquaredError",
+  // Compilación del modelo antes de entrenarlo
+  model.compile({             //"meanSquaredError": error cuatra
+    loss: "meanSquaredError",//"loos" funcion de perdida:
     optimizer: "sgd",
   });
 
@@ -16,7 +16,7 @@ async function entrenarModelo() {
   await model.fit(xs, ys, { epochs: 500 });
 
   // Actualización del mensaje de información
-  document.getElementById("info").innerText =
+  document.getElementById("mensaje").innerText =
     "Modelo entrenado. Listo para predecir.";
 
   // Guardar el modelo entrenado para que esté disponible para la predicción
@@ -38,6 +38,6 @@ async function predecir() {
   const prediction = model.predict(tf.tensor2d([inputValue], [1, 1]));
 
   // Mostrar la predicción en la página
-  const outputField = document.getElementById("output_field");
+  const outputField = document.getElementById("campo_salida");
   outputField.innerText = `Predicción: ${prediction.dataSync()[0]}`;
 }
